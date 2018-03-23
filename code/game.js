@@ -216,14 +216,14 @@ var playerYSpeed = 5;
 
 Player.prototype.moveY = function(step, level, keys) {
   // Accelerate player downward (always)
-  this.speed.y += step * gravity;;
+  this.speed.y += step * gravity;
   var motion = new Vector(0, this.speed.y * step);
   var newPos = this.pos.plus(motion);
   var obstacle = level.obstacleAt(newPos, this.size);
   // The floor is also an obstacle -- only allow players to
   // jump if they are touching some obstacle.
   if (obstacle == "lava")
-    this.pos = (10,10);
+    this.pos = new vector(10,10);
 
   if (obstacle) {
     if (keys.up && this.speed.y > 0)
